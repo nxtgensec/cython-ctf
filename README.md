@@ -11,7 +11,7 @@ A fast, dependency-free static rebuild of the **CYTHON CTF** event website, powe
 - **Cinematic hero** — two-line display headline with auto-fit sizing, rotating keyword (*Your Hunt / Exploration / … / Victory begins here*, 15 words, 3s rotation), and exact Root Access palette (`#050706` / `#0D120F` / `#28342B` / `#39FF14`)
 - **Live countdown** — three states (`EVENT STARTS IN` → `CYTHON CTF IS LIVE` → `THE BATTLE HAS ENDED`), ticking every second off real timestamps, zero-padded units, screen-reader safe
 - **Animated starfield sky** — pure-CSS twinkling stars + seamless crossfade zoom, fixed behind all content
-- **Full event page** — About, Challenges (6 categories), How It Works, Highlights, Rules & Eligibility, FAQ accordion, CTA, footer
+- **Full event page** — About, Challenges (6 categories), How It Works, Rewards, Rules & Eligibility, FAQ accordion, CTA, footer
 - **4-step registration wizard** — Participant → Team → Payment → Confirmation with validation; memory-only, nothing is stored or submitted
 - **Accessible & smooth** — keyboard focus rings, `prefers-reduced-motion` support, lazy-rendered sections, no images, no frameworks
 

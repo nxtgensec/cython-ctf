@@ -15,7 +15,6 @@
   .hx-schedule{line-height:1.8}
 }
 .hx-status{display:flex;align-items:center;justify-content:center;gap:.6rem;margin-top:1rem;flex-wrap:wrap}
-.hx-dot{height:.5rem;width:.5rem;border-radius:9999px;background:#39FF14;animation:hx-pulse 2s ease-in-out infinite}
 @keyframes hx-pulse{0%,100%{opacity:1}50%{opacity:.35}}
 .hx-status-text{font-family:var(--font-display);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#E1EAE2;border:1px solid #28342B;background:#0D120F;border-radius:9999px;padding:.45rem .9rem}
 .hx-duration{font-family:var(--font-display);font-size:12px;letter-spacing:.18em;color:#050706;background:#39FF14;border-radius:9999px;padding:.45rem .9rem;font-weight:700}
@@ -58,5 +57,5 @@ section[id]{scroll-margin-top:4.5rem}
   html{scroll-behavior:auto}
   .hx-copy{animation:none}
   .hx-word{transition:none}
-  .hx-dot,.hx-live::before{animation:none}
+  .hx-live::before{animation:none}
 }
