@@ -5,7 +5,15 @@
 .hx-grid{max-width:56rem;margin:0 auto;text-align:center;padding-top:3rem;padding-bottom:3.5rem}
 @media(min-width:960px){.hx-grid{padding-top:4.5rem;padding-bottom:5rem}}
 .hx-copy{min-width:0}
-.hx-eyebrow{margin:0;font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:#39FF14;text-align:center}
+.hx-eyebrow{margin:0 auto;max-width:44rem;font-family:"Inter",sans-serif;font-size:13px;font-weight:600;letter-spacing:.08em;color:#94A399;text-align:center;text-wrap:balance;line-height:1.7}
+.hx-eyebrow span{color:#39FF14}
+@media(max-width:480px){
+  .hx-eyebrow{font-size:12px}
+  .hx-cta .btn{flex:1 1 100%}
+  .hx-cells{gap:.35rem}
+  .hx-cell{padding:.55rem .15rem}
+  .hx-schedule{line-height:1.8}
+}
 .hx-status{display:flex;align-items:center;justify-content:center;gap:.6rem;margin-top:1rem;flex-wrap:wrap}
 .hx-dot{height:.5rem;width:.5rem;border-radius:9999px;background:#39FF14;animation:hx-pulse 2s ease-in-out infinite}
 @keyframes hx-pulse{0%,100%{opacity:1}50%{opacity:.35}}
