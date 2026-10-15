@@ -51,7 +51,7 @@ body{
     linear-gradient(#010204,#03060b 45%,#020304);
   background-size:240px 240px,240px 240px,240px 240px,240px 240px,240px 240px,240px 240px,240px 240px,240px 240px,240px 240px,240px 240px,auto,auto,auto;
 }
-.bg-logo{position:absolute;inset:0;background:url("logo.png") center 6%/min(880px,118vw) no-repeat;opacity:.2;mix-blend-mode:screen;-webkit-mask-image:radial-gradient(ellipse 62% 55% at 50% 38%,#000 52%,transparent 78%);mask-image:radial-gradient(ellipse 62% 55% at 50% 38%,#000 52%,transparent 78%)}
+.bg-logo{position:absolute;inset:0;background:url("bg.jpg") center 6%/min(880px,118vw) no-repeat;opacity:.2;mix-blend-mode:screen;-webkit-mask-image:radial-gradient(ellipse 62% 55% at 50% 38%,#000 52%,transparent 78%);mask-image:radial-gradient(ellipse 62% 55% at 50% 38%,#000 52%,transparent 78%)}
 body>header,body>main,body>footer{position:relative;z-index:1}
 /* Sky motion: twinkling star layer + slow aurora drift */
 .sky::before{content:"";position:absolute;inset:-5%;background:
