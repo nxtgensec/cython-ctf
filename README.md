@@ -59,7 +59,13 @@ node -e "const c = require('./countdown.js'); console.log(c.cythonSnapshot(Date.
 
 ## Registration flow
 
-`register.html` mirrors the original preview behavior: all data stays in page memory, validation runs per step, and leaving or refreshing the page clears everything. No backend required.
+Team-only event — no individual entries. Teams of 2, 3 or 4 members: the registrant becomes Member 1 (team leader), picks a team size in Step 2 (member fields appear dynamically), chooses a payment method in Step 3, and the record is written to Supabase on submit.
+
+## Database (Supabase)
+
+- Keys live in `.env.local` (gitignored, never committed). The browser uses only the anon key via `supabase.js`, guarded by row-level security.
+- `setup.sql` creates everything: `student_registrations` and `professional_registrations` tables (one per participant type), RLS enabled, anon `INSERT`-only policies, `team_size` constrained to 2–4, teammates stored as `members` JSONB.
+- Run `setup.sql` in the Supabase SQL editor (or any SQL client) to provision a project.
 
 ## Tech
 
