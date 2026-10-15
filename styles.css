@@ -51,7 +51,7 @@ body{
     linear-gradient(#010204,#03060b 45%,#020304);
   background-size:240px 240px,240px 240px,240px 240px,240px 240px,240px 240px,240px 240px,240px 240px,240px 240px,240px 240px,240px 240px,auto,auto,auto;
 }
-.bg-logo{position:absolute;inset:0;background:url("bg.png") center 6%/min(880px,118vw) no-repeat;opacity:.2;mix-blend-mode:screen;-webkit-mask-image:radial-gradient(ellipse 62% 55% at 50% 38%,#000 52%,transparent 78%);mask-image:radial-gradient(ellipse 62% 55% at 50% 38%,#000 52%,transparent 78%)}
+.bg-logo{position:absolute;inset:0;background:url("bg.png") center 6%/min(880px,118vw) no-repeat;opacity:.32;mix-blend-mode:screen;-webkit-mask-image:radial-gradient(ellipse 62% 55% at 50% 38%,#000 52%,transparent 78%);mask-image:radial-gradient(ellipse 62% 55% at 50% 38%,#000 52%,transparent 78%)}
 body>header,body>main,body>footer{position:relative;z-index:1}
 /* Sky motion: twinkling star layer + slow aurora drift */
 .sky::before{content:"";position:absolute;inset:-5%;background:
@@ -97,6 +97,9 @@ a{color:inherit;text-decoration:none}
 }
 @media(min-width:640px){.header-inner{padding:0 1.5rem}}
 .logo{display:inline-flex;align-items:baseline;gap:.375rem}
+.logo-stacked{flex-direction:column;align-items:flex-start;gap:1px;line-height:1.15}
+.logo-line{display:inline-flex;align-items:center;gap:.375rem}
+.logo-ver{font-family:var(--font-mono);font-size:9px;letter-spacing:.32em;color:hsl(var(--muted-foreground))}
 .logo-main{font-family:var(--font-display);font-size:1.5rem;line-height:1;letter-spacing:.02em;color:hsl(var(--primary))}
 .logo-badge{border:1px solid hsla(105,100%,54%,.4);border-radius:.25rem;padding:.15rem .4rem;font-family:var(--font-mono);font-size:9px;font-weight:700;letter-spacing:.25em}
 .ver-badge{display:none;border:1px solid hsl(var(--border));border-radius:.25rem;padding:.15rem .4rem;font-family:var(--font-mono);font-size:9px;letter-spacing:.2em;color:hsl(var(--muted-foreground))}
