@@ -23,27 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }), { threshold: 0.12 });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
   document.getElementById('year').textContent = new Date().getFullYear();
-  const sky = document.querySelector('.sky');
-  if (sky) {
-    const sky2 = sky.cloneNode(true);
-    sky2.setAttribute('aria-hidden', 'true');
-    sky.parentNode.insertBefore(sky2, sky);
-    const S = 1.18;
-    const D = 24000;
-    const paint = (p) => {
-      sky.style.transform = 'scale(' + (1 + (S - 1) * p).toFixed(4) + ')';
-      sky.style.opacity = (1 - p).toFixed(3);
-      sky2.style.transform = 'scale(' + ((1 / S) + (1 - 1 / S) * p).toFixed(4) + ')';
-      sky2.style.opacity = p.toFixed(3);
-    };
-    paint(0);
-    const t0 = performance.now();
-    const loop = (t) => {
-      paint(((t - t0) % D) / D);
-      requestAnimationFrame(loop);
-    };
-    requestAnimationFrame(loop);
-  }
   const h1 = document.querySelector('.hx-h1');
   const fitHx = () => {
     const l2 = h1 && h1.querySelector('.hx-l2');
