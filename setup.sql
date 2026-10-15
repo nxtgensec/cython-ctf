@@ -29,8 +29,8 @@ alter table public.professional_registrations enable row level security;
 
 drop policy if exists student_insert_anon on public.student_registrations;
 create policy student_insert_anon on public.student_registrations
-  for insert to anon with check (true);
+  for insert with check (true);
 
 drop policy if exists professional_insert_anon on public.professional_registrations;
 create policy professional_insert_anon on public.professional_registrations
-  for insert to anon with check (true);
+  for insert with check (true);
