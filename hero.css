@@ -30,6 +30,7 @@
 .hx-h1 .hx-your{color:#E1EAE2}
 .hx-h1 .hx-word{display:inline-block;color:#39FF14;transition:opacity .3s ease}
 .hx-word.is-out{opacity:0}
+.hx-desc strong{color:#E1EAE2}
 .hx-desc{margin:1.25rem auto 0;max-width:44rem;font-size:1.1rem;line-height:1.65;color:#94A399;text-wrap:balance}
 /* Countdown */
 .hx-timer{margin:1.75rem auto 0;max-width:30rem;background:#0D120F;border:1px solid #28342B;border-radius:.75rem;padding:1.1rem 1.25rem 1rem}
