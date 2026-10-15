@@ -1,13 +1,16 @@
 // CYTHON CTF — team-only registration (2–4 members), stored in Supabase.
 // Students -> student_registrations, professionals -> professional_registrations.
+// RAZORPAY INTEGRATION POINT: paste the Key ID below when provided. The
+// checkout call is marked TODO in submitStep3 — flow stays submit-first until then.
+var RAZORPAY_KEY_ID = '';
 (function () {
   var state = {
     participantType: '', mode: 'team',
     fullName: '', email: '', mobile: '',
+    college: '', year: '', dept: '', org: '', role: '',
     teamName: '', teamSize: 2, members: [],
     payMethod: ''
   };
-  var step = 1;
   function panels() { return [1, 2, 3, 4].map(function (n) { return document.getElementById('panel-' + n); }); }
   function err(id, msg) {
     var e = document.getElementById(id);
@@ -21,8 +24,9 @@
       return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c];
     });
   }
+  function validEmail(v) { return /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v); }
+  function validPhone(v) { return v.replace(/\D/g, '').length >= 7; }
   function show(n) {
-    step = n;
     panels().forEach(function (p, i) { if (p) p.hidden = (i + 1) !== n; });
     document.querySelectorAll('.stepper li').forEach(function (li, i) {
       li.classList.toggle('active', (i + 1) === n);
@@ -30,40 +34,54 @@
       li.querySelector('.step-dot').textContent = (i + 1) < n ? '✓' : '0' + (i + 1);
     });
     var names = { 1: 'Participant Details', 2: 'Team Details', 3: 'Payment', 4: 'Confirmation' };
-    document.getElementById('stepLive').textContent = 'Step ' + n + ' of 4: ' + names[n];
+    document.getElementById('stepLive').textContent = 'Step ' + n + ' of ' + 4 + ': ' + names[n];
     window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (n === 2) renderLead();
     if (n === 3) renderSummary();
     if (n === 4) renderConfirm();
+  }
+  function institute() {
+    if (state.participantType === 'student') return { a: state.college, b: state.year, c: state.dept };
+    return { a: state.org, b: '', c: state.role };
+  }
+  function renderLead() {
+    var ins = institute();
+    document.getElementById('leadSummary').innerHTML =
+      '<div><dt>Team Leader</dt><dd>' + esc(state.fullName) + ' · ' + esc(state.email) + ' · ' + esc(state.mobile) + '</dd></div>'
+      + (ins.a ? '<div><dt>Institution</dt><dd>' + esc(ins.a) + (ins.b ? ' · ' + esc(ins.b) : '') + (ins.c ? ' · ' + esc(ins.c) : '') + '</dd></div>' : '');
   }
   function renderMemberFields() {
     var box = document.getElementById('memberFields');
     var html = '';
     for (var i = 2; i <= state.teamSize; i++) {
-      var m = state.members[i - 2] || { name: '', email: '' };
-      html += '<div class="two"><div class="field"><label for="mname' + i + '">Member ' + i + ' Name<i>*</i></label>'
+      var m = state.members[i - 2] || { name: '', email: '', contact: '' };
+      html += '<h3 class="mono-label" style="color:hsl(var(--muted-foreground));margin-top:1.5rem">Member ' + i + '</h3>'
+        + '<div class="field"><label for="mname' + i + '">Full Name<i>*</i></label>'
         + '<input id="mname' + i + '" type="text" placeholder="Teammate name" value="' + esc(m.name) + '">'
         + '<p class="err" id="e-mname' + i + '"></p></div>'
-        + '<div class="field"><label for="mmail' + i + '">Member ' + i + ' Email<i>*</i></label>'
+        + '<div class="two"><div class="field"><label for="mmail' + i + '">Email<i>*</i></label>'
         + '<input id="mmail' + i + '" type="email" placeholder="teammate@mail.com" value="' + esc(m.email) + '">'
-        + '<p class="err" id="e-mmail' + i + '"></p></div></div>';
+        + '<p class="err" id="e-mmail' + i + '"></p></div>'
+        + '<div class="field"><label for="mcontact' + i + '">Contact Number<i>*</i></label>'
+        + '<input id="mcontact' + i + '" type="tel" placeholder="Mobile number" value="' + esc(m.contact) + '">'
+        + '<p class="err" id="e-mcontact' + i + '"></p></div></div>';
     }
     box.innerHTML = html;
   }
-  function validEmail(v) { return /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v); }
   function renderSummary() {
     var rows = '<div><dt>Leader</dt><dd>' + esc(state.fullName) + ' (' + esc(state.email) + ')</dd></div>'
       + '<div><dt>Type</dt><dd>' + esc(state.participantType) + '</dd></div>'
       + '<div><dt>Team</dt><dd>' + esc(state.teamName) + ' · ' + state.teamSize + ' members</dd></div>';
     state.members.forEach(function (m, i) {
-      rows += '<div><dt>Member ' + (i + 2) + '</dt><dd>' + esc(m.name) + ' (' + esc(m.email) + ')</dd></div>';
+      rows += '<div><dt>Member ' + (i + 2) + '</dt><dd>' + esc(m.name) + ' · ' + esc(m.email) + ' · ' + esc(m.contact) + '</dd></div>';
     });
     document.getElementById('paySummary').innerHTML = rows;
   }
   function renderConfirm() {
-    var rows = '<div><dt>Team</dt><dd>' + esc(state.teamName) + ' · ' + state.teamSize + ' members</dd></div>'
+    document.getElementById('confirmSummary').innerHTML =
+      '<div><dt>Team</dt><dd>' + esc(state.teamName) + ' · ' + state.teamSize + ' members</dd></div>'
       + '<div><dt>Leader</dt><dd>' + esc(state.fullName) + '</dd></div>'
       + '<div><dt>Email</dt><dd>' + esc(state.email) + '</dd></div>';
-    document.getElementById('confirmSummary').innerHTML = rows;
   }
   document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('input[name="participantType"]').forEach(function (r) {
@@ -72,6 +90,8 @@
         document.querySelectorAll('input[name="participantType"]').forEach(function (x) {
           x.closest('.opt').classList.toggle('selected', x.checked);
         });
+        document.getElementById('studentFields').style.display = r.value === 'student' ? '' : 'none';
+        document.getElementById('proFields').style.display = r.value === 'professional' ? '' : 'none';
       });
     });
     document.getElementById('f1').addEventListener('submit', function (e) {
@@ -83,7 +103,20 @@
       ok = err('e-type', state.participantType ? '' : 'Select student or working professional.') && ok;
       ok = err('e-name', state.fullName.length >= 2 ? '' : 'Enter your full name.') && ok;
       ok = err('e-email', validEmail(state.email) ? '' : 'Enter a valid email.') && ok;
-      ok = err('e-mobile', state.mobile.replace(/\D/g, '').length >= 7 ? '' : 'Enter a valid mobile number.') && ok;
+      ok = err('e-mobile', validPhone(state.mobile) ? '' : 'Enter a valid mobile number.') && ok;
+      if (state.participantType === 'student') {
+        state.college = document.getElementById('college').value.trim();
+        state.year = document.getElementById('year').value;
+        state.dept = document.getElementById('dept').value.trim();
+        ok = err('e-college', state.college.length >= 2 ? '' : 'Enter your college name.') && ok;
+        ok = err('e-year', state.year ? '' : 'Select your year.') && ok;
+        ok = err('e-dept', state.dept.length >= 2 ? '' : 'Enter your department.') && ok;
+      } else if (state.participantType === 'professional') {
+        state.org = document.getElementById('org').value.trim();
+        state.role = document.getElementById('role').value.trim();
+        ok = err('e-org', state.org.length >= 2 ? '' : 'Enter your organisation.') && ok;
+        ok = err('e-role', state.role.length >= 2 ? '' : 'Enter your designation.') && ok;
+      }
       if (ok) { renderMemberFields(); show(2); }
     });
     document.querySelectorAll('input[name="teamsize"]').forEach(function (r) {
@@ -105,9 +138,11 @@
       for (var i = 2; i <= state.teamSize; i++) {
         var nm = document.getElementById('mname' + i).value.trim();
         var em = document.getElementById('mmail' + i).value.trim();
+        var ct = document.getElementById('mcontact' + i).value.trim();
         ok = err('e-mname' + i, nm.length >= 2 ? '' : 'Enter a name.') && ok;
         ok = err('e-mmail' + i, validEmail(em) ? '' : 'Enter a valid email.') && ok;
-        state.members.push({ name: nm, email: em });
+        ok = err('e-mcontact' + i, validPhone(ct) ? '' : 'Enter a valid contact number.') && ok;
+        state.members.push({ name: nm, email: em, contact: ct });
       }
       if (ok) show(3);
     });
@@ -131,15 +166,22 @@
       var btn = document.getElementById('submitBtn');
       btn.disabled = true;
       btn.textContent = 'Submitting…';
+      // TODO(Razorpay): when RAZORPAY_KEY_ID is set, open Razorpay Checkout here,
+      // verify payment, then insert registration + payment record. Until then,
+      // registrations submit directly with the chosen pay_method.
       var table = state.participantType === 'student' ? 'student_registrations' : 'professional_registrations';
+      var ins = institute();
       var row = {
         full_name: state.fullName,
         email: state.email,
         mobile: state.mobile,
+        institution: ins.a,
+        year_info: ins.b,
+        department: ins.c,
         team_name: state.teamName,
         team_size: state.teamSize,
-        members: [{ name: state.fullName, email: state.email, role: 'leader' }]
-          .concat(state.members.map(function (m) { return { name: m.name, email: m.email, role: 'member' }; })),
+        members: [{ name: state.fullName, email: state.email, contact: state.mobile, role: 'leader' }]
+          .concat(state.members.map(function (m) { return { name: m.name, email: m.email, contact: m.contact, role: 'member' }; })),
         pay_method: state.payMethod
       };
       supabaseInsert(table, row).then(function () {
@@ -154,10 +196,14 @@
     });
     document.getElementById('again').addEventListener('click', function () {
       state.participantType = ''; state.fullName = ''; state.email = ''; state.mobile = '';
+      state.college = ''; state.year = ''; state.dept = ''; state.org = ''; state.role = '';
       state.teamName = ''; state.teamSize = 2; state.members = []; state.payMethod = '';
       document.querySelectorAll('input').forEach(function (i) {
         if (i.type === 'radio' || i.type === 'checkbox') i.checked = false; else i.value = '';
       });
+      document.getElementById('year').value = '';
+      document.getElementById('studentFields').style.display = 'none';
+      document.getElementById('proFields').style.display = 'none';
       document.querySelector('input[name="teamsize"][value="2"]').checked = true;
       document.querySelectorAll('.opt').forEach(function (o) { o.classList.remove('selected'); });
       document.querySelector('#sizePills .opt').classList.add('selected');
