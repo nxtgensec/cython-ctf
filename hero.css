@@ -25,7 +25,8 @@
 .hx-h1 .hx-l1{color:#fff}
 .hx-h1 .hx-brand{color:#39FF14}
 @media(min-width:640px){.hx-h1 .hx-l1,.hx-h1 .hx-l2{white-space:nowrap}}
-.hx-h1 .hx-l2{white-space:nowrap}
+.hx-h1 .hx-l2{white-space:nowrap;font-size:2.5rem}
+@media(max-width:700px){.hx-h1 .hx-l2{font-size:1.65rem}}
 .hx-h1 .hx-your{color:#E1EAE2}
 .hx-h1 .hx-word{display:inline-block;color:#39FF14;transition:opacity .3s ease}
 .hx-word.is-out{opacity:0}
