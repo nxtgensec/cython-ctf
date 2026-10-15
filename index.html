@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CYTHON CTF — Capture The Flag | Powered by NxtGenSec</title>
+<meta name="description" content="CYTHON CTF is a Capture The Flag cybersecurity competition powered by NxtGenSec. Break the code. Own the root.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23050706'/><text x='16' y='22' font-size='16' text-anchor='middle' fill='%234DFF14' font-family='monospace' font-weight='bold'>C</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&family=Rubik+Distressed&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="hero.css">
+</head>
+<body>
+<div class="sky" aria-hidden="true"><div class="bg-logo"></div></div>
+<header class="site-header">
+<div class="header-inner">
+<div style="display:flex;align-items:center;gap:.5rem">
+<a class="logo" href="/" aria-label="CYTHON CTF — back to top"><span class="logo-main">CYTHON</span><span class="logo-badge">CTF</span></a>
+<span class="ver-badge">v1.0</span>
+</div>
+<nav class="nav-primary" aria-label="Primary">
+<a href="#about">About</a><a href="#challenges">Challenges</a><a href="#how-it-works">How It Works</a><a href="#rules">Rules</a><a href="#faq">FAQ</a>
+</nav>
+<div style="display:flex;justify-content:flex-end">
+<a class="btn btn-primary" href="register.html" style="display:none" id="deskCta">Register Now</a>
+<style>@media(min-width:768px){#deskCta{display:inline-flex!important}}</style>
+<button class="mobile-toggle" id="navToggle" aria-expanded="false" aria-controls="mobileNav" aria-label="Open navigation menu"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg></button>
+</div>
+</div>
+<div class="mobile-nav" id="mobileNav">
+<a href="#about">About</a><a href="#challenges">Challenges</a><a href="#how-it-works">How It Works</a><a href="#rules">Rules</a><a href="#faq">FAQ</a>
+<a class="cta" href="register.html">Register Now</a>
+</div>
+</header>
+<main>
+<section class="hero hx-hero">
+<div class="hero-inner hx-grid">
+<div class="hx-copy">
+<p class="hx-eyebrow">Cybersecurity • Capture the Flag</p>
+<div class="hx-status"><span class="hx-dot" aria-hidden="true"></span><span class="hx-status-text">Registration Open</span><span class="hx-duration">36-HOUR CTF</span></div>
+<h1 class="hx-h1"><span class="hx-l1">Welcome to <span class="hx-brand">CYTHON&nbsp;CTF</span></span><span class="hx-your hx-l2">Your <span class="hx-word" id="hxWord">Hunt</span> begins here</span></h1>
+<p class="hx-desc">Enter CYTHON CTF, a cybersecurity Capture The Flag competition powered by NxtGenSec. Challenge your skills in ethical hacking, web security, cryptography, digital forensics, and problem-solving through hands-on cybersecurity challenges.</p>
+<div class="hx-timer" role="timer" aria-label="CYTHON CTF event countdown" aria-live="off">
+<p class="hx-timer-label" id="hxState">EVENT STARTS IN</p>
+<div class="hx-cells" id="hxCells" aria-hidden="true">
+<div class="hx-cell"><span class="hx-num" id="hxD">--</span><span class="hx-unit">DAYS</span></div>
+<div class="hx-cell"><span class="hx-num" id="hxH">--</span><span class="hx-unit">HOURS</span></div>
+<div class="hx-cell"><span class="hx-num" id="hxM">--</span><span class="hx-unit">MINUTES</span></div>
+<div class="hx-cell"><span class="hx-num" id="hxS">--</span><span class="hx-unit">SECONDS</span></div>
+</div>
+<p class="hx-live" id="hxLive" hidden>36-HOUR BATTLE IN PROGRESS</p>
+<p class="hx-thanks" id="hxThanks" hidden>Thank you to everyone who participated in CYTHON CTF.</p>
+<p class="hx-schedule">Timings: 30 Oct, 10:00 AM – 31 Oct, 10:00 PM IST</p>
+<span class="hx-visually-hidden" id="hxSrStatus" aria-live="polite"></span>
+</div>
+<div class="hero-cta hx-cta">
+<a class="btn btn-primary btn-lg" href="register.html">Register Now</a>
+<a class="btn btn-outline" href="#about">Know More →</a>
+</div>
+</div>
+</section>
+<section id="about" class="section"><div class="container"><div class="about-grid">
+<div class="reveal"><p class="mono-label">About the Event</p><h2 class="h2">What is CYTHON CTF?</h2>
+<p class="body" style="margin-top:1.5rem">CYTHON CTF is a cybersecurity Capture The Flag competition designed to bring curious minds, students, developers, and security enthusiasts together through practical security challenges.</p>
+<p class="body2">Participants work through problems, analyze evidence, uncover weaknesses in intentionally designed challenges, and submit flags according to the competition rules.</p>
+<p class="body2">The event encourages technical curiosity, ethical security practices, problem-solving, and continuous learning.</p></div>
+<div class="reveal"><aside class="brief"><p class="mono-label">Event Brief</p><dl>
+<div><dt>Format</dt><dd>Capture The Flag</dd></div>
+<div><dt>Audience</dt><dd>Open to everyone</dd></div>
+<div><dt>Participation</dt><dd>Individual or team, subject to event configuration</dd></div>
+<div><dt>Organizer</dt><dd>NxtGenSec</dd></div>
+</dl></aside></div>
+</div></div></section>
+<section id="challenges" class="section section-dark"><div class="container">
+<div class="center reveal"><p class="eyebrow">Challenge Categories</p><h2 class="h2">Choose Your Battlefield</h2><p class="sub">Explore different areas of cybersecurity through challenge-based problem-solving.</p></div>
+<div class="grid-3">
+<div class="reveal"><article class="card"><div class="cat-top"><span class="cat-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20Z"/></svg></span><span class="cat-path">/web</span></div><h3>Web Exploitation</h3><p>Investigate vulnerabilities in intentionally vulnerable web applications.</p></article></div>
+<div class="reveal"><article class="card"><div class="cat-top"><span class="cat-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="15" r="5"/><path d="m11 12 9-9"/><path d="m15 5 3 3"/></svg></span><span class="cat-path">/crypto</span></div><h3>Cryptography</h3><p>Analyze encoded messages, ciphers, and cryptographic puzzles.</p></article></div>
+<div class="reveal"><article class="card"><div class="cat-top"><span class="cat-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></span><span class="cat-path">/forensics</span></div><h3>Digital Forensics</h3><p>Examine files and digital artifacts to uncover hidden evidence.</p></article></div>
+<div class="reveal"><article class="card"><div class="cat-top"><span class="cat-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="14" y="14" width="4" height="6" rx="1"/><rect x="6" y="4" width="4" height="6" rx="1"/><path d="M6 20h4M14 10h4M6 14h2v6M14 4h2v6"/></svg></span><span class="cat-path">/reverse</span></div><h3>Reverse Engineering</h3><p>Study program behavior and uncover how software works.</p></article></div>
+<div class="reveal"><article class="card"><div class="cat-top"><span class="cat-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></span><span class="cat-path">/osint</span></div><h3>OSINT</h3><p>Use publicly available information to solve investigation challenges.</p></article></div>
+<div class="reveal"><article class="card"><div class="cat-top"><span class="cat-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 7V4a1 1 0 0 0-1-1H6a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h2"/><path d="M14 7h3a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1h-9a1 1 0 0 1-1-1v-3"/></svg></span><span class="cat-path">/misc</span></div><h3>Miscellaneous</h3><p>Tackle creative technical puzzles that do not fit into a single category.</p></article></div>
+</div></div></section>
+<section id="how-it-works" class="section"><div class="container">
+<div class="center reveal"><p class="eyebrow">How It Works</p><h2 class="h2">Your Path to the Flag</h2></div>
+<ol class="steps">
+<li class="reveal"><span class="step-num">01</span><div class="step-line"></div><h3>Register</h3><p>Provide the required participant and team details.</p></li>
+<li class="reveal"><span class="step-num">02</span><div class="step-line"></div><h3>Prepare</h3><p>Review the event instructions, rules, and schedule when published.</p></li>
+<li class="reveal"><span class="step-num">03</span><div class="step-line"></div><h3>Solve</h3><p>Work through the challenges using technical knowledge, investigation, and problem-solving.</p></li>
+<li class="reveal"><span class="step-num">04</span><div class="step-line"></div><h3>Submit</h3><p>Submit discovered flags through the official challenge platform when available.</p></li>
+</ol>
+<div class="info-box reveal"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg><p>This website covers event information and registration only. Challenges are solved and flags submitted on the official challenge platform once the organizer opens it.</p></div>
+</div></section>
+<section class="section section-dark"><div class="container">
+<div class="center reveal"><p class="eyebrow">Event Highlights</p><h2 class="h2">Why you should compete</h2></div>
+<div class="grid-4">
+<div class="reveal"><article class="card"><span class="num">01</span><div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="22" x2="18" y1="12" y2="12"/><line x1="6" x2="2" y1="12" y2="12"/><line x1="12" x2="12" y1="6" y2="2"/><line x1="12" x2="12" y1="22" y2="18"/></svg></div><h3>Hands-On Challenges</h3><p>Explore practical cybersecurity problems through a Capture The Flag format.</p></article></div>
+<div class="reveal"><article class="card"><span class="num">02</span><div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5a3 3 0 1 0-6 0 4 4 0 0 0-2.5 5.8A4 4 0 0 0 4 17a4 4 0 0 0 8 1Z"/><path d="M12 5a3 3 0 1 1 6 0 4 4 0 0 1 2.5 5.8A4 4 0 0 1 20 17a4 4 0 0 1-8 1Z"/></svg></div><h3>Think Like a Hacker</h3><p>Analyze clues, investigate systems, and approach security problems creatively.</p></article></div>
+<div class="reveal"><article class="card"><span class="num">03</span><div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10 12 5 3 10l9 5 9-5Z"/><path d="M6 12v5a6 3 0 0 0 12 0v-5"/></svg></div><h3>Learn by Solving</h3><p>Develop practical problem-solving skills through challenge-based participation.</p></article></div>
+<div class="reveal"><article class="card"><span class="num">04</span><div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></div><h3>Compete and Improve</h3><p>Test your skills, learn from difficult problems, and measure your progress where the event platform supports it.</p></article></div>
+</div></div></section>
+<section id="rules" class="section section-dark"><div class="container">
+<div class="center reveal"><p class="eyebrow">Rules & Eligibility</p><h2 class="h2">Play Smart. Play Fair.</h2></div>
+<div class="rules-grid">
+<div class="reveal"><div class="brief"><h3 style="margin:0;font-size:1.125rem;text-transform:uppercase">General Rules</h3>
+<ul class="rules-list">
+<li><span class="n">01</span><span>Follow the official competition instructions.</span></li>
+<li><span class="n">02</span><span>Work only on targets explicitly authorized by the event.</span></li>
+<li><span class="n">03</span><span>Do not attack the website, infrastructure, or other participants.</span></li>
+<li><span class="n">04</span><span>Do not interfere with event availability or challenge integrity.</span></li>
+<li><span class="n">05</span><span>Do not share flags or solutions in violation of the official event rules.</span></li>
+<li><span class="n">06</span><span>Do not impersonate other participants.</span></li>
+<li><span class="n">07</span><span>Report suspected vulnerabilities in the event infrastructure responsibly.</span></li>
+<li><span class="n">08</span><span>Respect the event's final eligibility, team-size, and submission requirements.</span></li>
+</ul></div></div>
+<div class="reveal"><div class="brief" style="height:100%"><h3 style="margin:0;font-size:1.125rem;text-transform:uppercase">Eligibility</h3>
+<ul class="check-list">
+<li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span>Open to students, professionals, and other interested participants.</span></li>
+<li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span>Individual or team participation, subject to the configured policy.</span></li>
+<li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span>Participants must provide accurate information.</span></li>
+<li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span>Additional requirements, if any, must be published before registration.</span></li>
+</ul></div></div>
+</div>
+<p class="fine reveal">These are the event's working guidelines — the final official rules, team-size limits, and submission requirements will be published by the organizer before the competition.</p>
+</div></section>
+<section id="faq" class="section"><div class="container"><div class="faq-wrap">
+<div class="center reveal"><p class="eyebrow">FAQ</p><h2 class="h2">Frequently Asked Questions</h2></div>
+<div class="faq-box reveal">
+<div class="faq-item"><button class="faq-q" aria-expanded="false">What is CYTHON CTF?<svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button><div class="faq-a"><p>A Capture The Flag cybersecurity competition by NxtGenSec where you solve practical security challenges across web, crypto, forensics, reverse, OSINT and misc categories.</p></div></div>
+<div class="faq-item"><button class="faq-q" aria-expanded="false">Who can participate?<svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button><div class="faq-a"><p>Open to everyone — students, professionals, and other interested participants. Provide accurate details during registration.</p></div></div>
+<div class="faq-item"><button class="faq-q" aria-expanded="false">Can beginners participate?<svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button><div class="faq-a"><p>Yes. Challenges encourage learning by solving, and beginners can start with easier problems and learn progressively.</p></div></div>
+<div class="faq-item"><button class="faq-q" aria-expanded="false">Can I participate individually?<svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button><div class="faq-a"><p>Yes. Choose Individual as participation mode in Step 1 of the registration form.</p></div></div>
+<div class="faq-item"><button class="faq-q" aria-expanded="false">Can I participate with a team?<svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button><div class="faq-a"><p>Yes, subject to the event's team-size policy. Choose Team mode and fill team details in Step 2.</p></div></div>
+<div class="faq-item"><button class="faq-q" aria-expanded="false">Is registration paid?<svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button><div class="faq-a"><p>Fee details, if any, will be published by the organizer before the competition. The payment step in this preview is for flow demonstration only.</p></div></div>
+<div class="faq-item"><button class="faq-q" aria-expanded="false">When does the competition begin?<svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button><div class="faq-a"><p>Schedule and instructions will be published by NxtGenSec. Review the How It Works section and watch your email for updates.</p></div></div>
+<div class="faq-item"><button class="faq-q" aria-expanded="false">How do I receive event updates?<svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button><div class="faq-a"><p>Through the email and mobile number you provide in the registration form, plus announcements on this site.</p></div></div>
+<div class="faq-item"><button class="faq-q" aria-expanded="false">Will I receive a confirmation after filling in the form?<svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></button><div class="faq-a"><p>This site is a frontend-only preview: details stay in your browser memory and clear on refresh. The organizer will publish the official confirmation process.</p></div></div>
+</div></div></div></section>
+<section class="cta-sec"><div class="cta-inner reveal">
+<p class="eyebrow">Registration</p>
+<h2 class="h2" style="font-size:clamp(1.8rem,4vw,3rem)">Ready to enter the <span class="text-primary">battlefield?</span></h2>
+<p class="sub">Sharpen your thinking. Test your skills. Discover what you can solve.</p>
+<div style="margin-top:2.25rem;display:flex;justify-content:center"><a class="btn btn-primary btn-lg" href="register.html">Register Now</a></div>
+<p class="powered">CYTHON CTF — Powered by <span style="color:hsl(var(--foreground))">NxtGenSec</span></p>
+</div></section>
+<footer><div class="foot-grid">
+<div><span class="logo"><span class="logo-main">CYTHON</span><span class="logo-badge">CTF</span></span>
+<p class="desc">A Capture The Flag cybersecurity competition bringing curious minds together through practical security challenges.</p>
+<p class="powered" style="text-align:left;margin-top:1.25rem">Powered by <span class="text-primary">NxtGenSec</span></p></div>
+<nav aria-label="Footer navigation"><h4>Navigate</h4><ul>
+<li><a href="#about">About</a></li><li><a href="#challenges">Challenges</a></li><li><a href="#how-it-works">How It Works</a></li><li><a href="#rules">Rules</a></li><li><a href="#faq">FAQ</a></li>
+</ul></nav>
+<div><h4>Privacy Notice</h4><p class="desc">This website is a frontend-only registration preview. Details entered in the registration form stay in your browser's memory while the page is open — they are never stored, logged, or submitted to the organizer. Closing or refreshing the page clears them.</p></div>
+</div><div class="copy">© <span id="year">2026</span> CYTHON CTF — All rights reserved</div></footer>
+<script src="countdown.js"></script>
+<script src="app.js"></script>
+
+</main>
+</body>
+</html>

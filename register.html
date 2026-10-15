@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Register — CYTHON CTF | Powered by NxtGenSec</title>
+<meta name="description" content="Register for CYTHON CTF. Frontend-only preview — details stay in your browser.">
+<link rel="stylesheet" href="styles.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&family=Rubik+Distressed&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<header class="reg-header"><div class="reg-header-inner">
+<a class="logo" href="index.html"><span class="logo-main" style="font-size:1.15rem">CYTHON</span><span class="logo-badge">CTF</span></a>
+<a class="back-link" href="index.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg> Back to site</a>
+</div></header>
+<main class="reg-main">
+<ol class="stepper" aria-label="Registration steps">
+<li class="active"><span class="step-dot">01</span><span class="step-name">Participant</span><span class="step-bar"></span></li>
+<li><span class="step-dot">02</span><span class="step-name">Team</span><span class="step-bar"></span></li>
+<li><span class="step-dot">03</span><span class="step-name">Payment</span><span class="step-bar"></span></li>
+<li><span class="step-dot">04</span><span class="step-name">Confirmation</span></li>
+</ol>
+<p id="stepLive" class="sr-only" aria-live="polite">Step 1 of 4: Participant Details</p>
+<div class="reg-card" id="panel-1">
+<form id="f1" novalidate>
+<p class="mono-label">Step 01 — Participant Details</p>
+<h2>Let's get you started</h2>
+<p>Tell us a little about yourself so we can prepare your event registration details.</p>
+<fieldset><legend>Participant Type</legend><div class="opt-grid">
+<label class="opt"><input type="radio" name="participantType" value="student"><span><b>Student</b><small>Currently studying at a college or university.</small></span></label>
+<label class="opt"><input type="radio" name="participantType" value="professional"><span><b>Working Professional</b><small>Employed, self-employed, or between jobs.</small></span></label>
+</div><p class="err" id="e-type"></p></fieldset>
+<fieldset><legend>Participation Mode</legend><div class="opt-grid">
+<label class="opt"><input type="radio" name="mode" value="individual"><span><b>Individual</b><small>Compete on your own.</small></span></label>
+<label class="opt"><input type="radio" name="mode" value="team"><span><b>Team</b><small>Compete with teammates.</small></span></label>
+</div><p class="err" id="e-mode"></p></fieldset>
+<div style="margin-top:2rem"><h3 class="mono-label" style="color:hsl(var(--muted-foreground))">Your Details</h3>
+<div class="field"><label for="fullName">Full Name<i>*</i></label><input id="fullName" type="text" autocomplete="name" placeholder="Your full name"><p class="err" id="e-name"></p></div>
+<div class="two"><div class="field"><label for="email">Email Address<i>*</i></label><input id="email" type="email" autocomplete="email" placeholder="name@example.com"><p class="err" id="e-email"></p></div>
+<div class="field"><label for="mobile">Mobile Number<i>*</i></label><input id="mobile" type="tel" autocomplete="tel" placeholder="Your mobile number"><p class="err" id="e-mobile"></p></div></div>
+</div>
+<div class="reg-actions"><button class="btn btn-primary btn-lg" type="submit" style="width:100%">Continue</button></div>
+</form>
+</div>
+<div class="reg-card" id="panel-2" hidden>
+<form id="f2" novalidate>
+<p class="mono-label">Step 02 — Team Details</p>
+<h2>Individual or squad?</h2>
+<p id="teamIntro">If you chose Individual, just continue. For Team mode, add your squad details.</p>
+<div id="teamOnly" style="display:none">
+<div class="field"><label for="teamName">Team Name<i>*</i></label><input id="teamName" type="text" placeholder="e.g. NullPtrs"><p class="err" id="e-tname"></p></div>
+<div class="two"><div class="field"><label for="teamSize">Team Size<i>*</i></label><select id="teamSize"><option value="">Select…</option><option>2</option><option>3</option><option>4</option></select><p class="err" id="e-tsize"></p></div>
+<div class="field"><label for="members">Teammate emails</label><textarea id="members" placeholder="teammate1@mail.com, teammate2@mail.com"></textarea></div></div>
+</div>
+<div class="reg-actions"><button class="btn btn-secondary" type="button" id="back2">Back</button><button class="btn btn-primary btn-lg" type="submit">Continue</button></div>
+</form>
+</div>
+<div class="reg-card" id="panel-3" hidden>
+<form id="f3" novalidate>
+<p class="mono-label">Step 03 — Payment</p>
+<h2>Confirm & pay</h2>
+<p>Preview only — no real charge happens here.</p>
+<div class="summary"><dl id="paySummary"></dl></div>
+<fieldset><legend>Payment method (preview)</legend><div class="opt-grid">
+<label class="opt"><input type="radio" name="pay" value="upi"><span><b>UPI</b><small>Pay via UPI ID (demo).</small></span></label>
+<label class="opt"><input type="radio" name="pay" value="card"><span><b>Card</b><small>Credit / debit (demo).</small></span></label>
+</div><p class="err" id="e-pay"></p></fieldset>
+<div class="field"><label style="display:flex;gap:.5rem;align-items:flex-start;text-transform:none;letter-spacing:0"><input type="checkbox" id="agree" style="width:1rem;height:1rem;margin-top:.2rem;accent-color:#39FF14"> I understand this is a frontend-only preview and nothing is stored or submitted.</label></div>
+<div class="reg-actions"><button class="btn btn-secondary" type="button" id="back3">Back</button><button class="btn btn-primary btn-lg" type="submit">Complete Registration</button></div>
+</form>
+</div>
+<div class="reg-card" id="panel-4" hidden>
+<p class="mono-label">Step 04 — Confirmation</p>
+<h2>You're on the list!</h2>
+<p>This is a local preview confirmation. In the live event the organizer will confirm by email.</p>
+<div class="success"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg></div>
+<div class="summary"><dl id="confirmSummary"></dl></div>
+<div class="reg-actions"><a class="btn btn-secondary" href="index.html">Back to site</a><button class="btn btn-primary btn-lg" id="again" type="button">New registration</button></div>
+</div>
+<p class="note">Frontend-only registration preview — your details stay in this page's memory and are never stored or submitted. Leaving this page clears them.</p>
+</main>
+<script src="register.js"></script>
+</body>
+</html>
